@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lista Tarefas</string>
+    <string name="usuario">Usuario</string>
+    <string name="senha">Senha</string>
+    <string name="login">Login</string>
+
+</resources>
