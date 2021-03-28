@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.listatarefas">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo"
@@ -9,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ListaTarefas">
-        <activity android:name=".TelaPrincipalActivity"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".CommentsActivity"></activity>
+        <activity android:name=".TodosActivity" />
+        <activity android:name=".AlbumsActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PostsActivity" />
+        <activity android:name=".MenuDeApisRestActivity" />
+        <activity android:name=".TelaPrincipalActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

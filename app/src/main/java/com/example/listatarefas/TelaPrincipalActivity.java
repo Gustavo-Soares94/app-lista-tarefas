@@ -26,4 +26,11 @@ public class TelaPrincipalActivity extends AppCompatActivity {
         Intent intent2 = new Intent(getApplicationContext(), SplashActivity.class);
         startActivity(intent2);
     }
+
+    public void irMenuApiRest(View view){
+
+        Intent intent3 = new Intent(getApplicationContext(), MenuDeApisRestActivity.class);
+        startActivity(intent3);
+    }
+
 }
