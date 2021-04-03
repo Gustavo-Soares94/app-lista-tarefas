@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:background="@drawable/comments_bg"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/prefix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="A"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/commentsEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="larntech"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="60dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="60dp" />
+
+        <ImageView
+            android:id="@+id/imageNext"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_navigate_next"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp" />
+
+    </RelativeLayout>
+
+    
+</LinearLayout>

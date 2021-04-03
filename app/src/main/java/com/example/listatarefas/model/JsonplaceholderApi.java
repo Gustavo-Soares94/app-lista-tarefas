@@ -17,6 +17,6 @@ public interface JsonplaceholderApi {
     Call<List<Todos>> getTodos();
 
     @GET("comments")
-    Call<List<Comments>> getComments();
+    Call<List<Comments>> getAllComments();
 
 }

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ListaTarefas">
-        <activity android:name=".CommentsActivity"></activity>
+        <activity android:name=".CommentsDetailsActivity"></activity>
+        <activity android:name=".CommentsActivity" />
         <activity android:name=".TodosActivity" />
         <activity android:name=".AlbumsActivity" />
         <activity android:name=".SplashActivity">

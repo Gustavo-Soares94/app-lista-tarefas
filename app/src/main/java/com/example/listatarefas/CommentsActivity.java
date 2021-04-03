@@ -1,71 +1,69 @@
 package com.example.listatarefas;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.util.Log;
+import com.example.listatarefas.model.ApiJsonplaceholder;
 import com.example.listatarefas.model.Comments;
-import com.example.listatarefas.model.JsonplaceholderApi;
-
+import com.example.listatarefas.model.CommentsAdapter;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CommentsActivity extends AppCompatActivity {
+public class CommentsActivity extends AppCompatActivity implements CommentsAdapter.ClickedItem {
 
-    private TextView mjsonTxtView;
+    Toolbar toolbar;
+    RecyclerView recyclerView;
+
+    CommentsAdapter commentsAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
 
-        mjsonTxtView = findViewById(R.id.jsonText);
-        getComments();
+        toolbar = findViewById(R.id.toolbar);
+        recyclerView = findViewById(R.id.recyclerview);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+
+        commentsAdapter = new CommentsAdapter(this::ClickedComments);
+
+        getAllComments();
 
     }
 
-    private void getComments(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+    public void getAllComments(){
+        Call<List<Comments>> commentsList = ApiJsonplaceholder.getComments().getAllComments();
 
-        JsonplaceholderApi jsonplaceholderApi = retrofit.create(JsonplaceholderApi.class);
-        Call<List<Comments>> call = jsonplaceholderApi.getComments();
-
-        call.enqueue(new Callback<List<Comments>>() {
+        commentsList.enqueue(new Callback<List<Comments>>() {
             @Override
             public void onResponse(Call<List<Comments>> call, Response<List<Comments>> response) {
+                if(response.isSuccessful()){
+                    List<Comments> comments = response.body();
+                    commentsAdapter.setData(comments);
+                    recyclerView.setAdapter(commentsAdapter);
 
-                if(!response.isSuccessful()){
-                    mjsonTxtView.setText("Codigo: " + response.code());
-                    return;
                 }
-
-                List<Comments> commentsList = response.body();
-
-                for(Comments comments : commentsList){
-                    String content = "";
-                    content += "postId:" + comments.getPostId() + "\n";
-                    content += "id:" + comments.getId() + "\n";
-                    content += "name:" + comments.getName() + "\n";
-                    content += "email:" + comments.getEmail() + "\n";
-                    content += "body:" + comments.getBody() + "\n\n";
-                    mjsonTxtView.append(content);
-                }
-
             }
-
             @Override
             public void onFailure(Call<List<Comments>> call, Throwable t) {
-                mjsonTxtView.setText(t.getMessage());
+                Log.e("failure", t.getLocalizedMessage());
             }
         });
-
     }
 
+    @Override
+    public void ClickedComments(Comments comments) {
+        
+        startActivity(new Intent(this,CommentsDetailsActivity.class).putExtra("data",comments));
+    }
 }
+
