@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="#0FC565"
     android:layout_height="match_parent"
-    tools:context=".AlbumsActivity">
+    tools:context=".AlbumsDetailsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        android:background="@color/teal_200"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:subtitleTextColor="@color/white"
@@ -18,21 +18,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Lista de Albums" />
+            android:text="Detalhes do album" />
 
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/albumsTitles"
         android:layout_width="match_parent"
-        android:background="@drawable/recyclerview_bg"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            android:padding="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </androidx.recyclerview.widget.RecyclerView>
+        android:text="Titulo:"
+        android:padding="10dp"
+        android:textColor="@color/teal_700"
+        android:layout_height="wrap_content"
+        />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/albumsTitle"
+        android:layout_width="match_parent"
+        android:text="Titulo"
+        android:padding="10dp"
+        android:textColor="@color/teal_700"
+        android:layout_height="wrap_content"
+        />
+
 
 </LinearLayout>

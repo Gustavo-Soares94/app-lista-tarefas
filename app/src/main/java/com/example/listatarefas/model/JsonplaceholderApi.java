@@ -8,10 +8,10 @@ import retrofit2.http.GET;
 public interface JsonplaceholderApi {
 
     @GET("posts")
-    Call<List<Posts>> getPosts();
+    Call<List<Posts>> getAllPosts();
 
     @GET("albums")
-    Call<List<Albums>> getAlbums();
+    Call<List<Albums>> getAllAlbums();
 
     @GET("todos")
     Call<List<Todos>> getTodos();

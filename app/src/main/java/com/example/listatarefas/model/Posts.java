@@ -1,6 +1,8 @@
 package com.example.listatarefas.model;
 
-public class Posts {
+import java.io.Serializable;
+
+public class Posts implements Serializable {
 
     private int userId;
     private int id;
@@ -23,7 +25,29 @@ public class Posts {
         return body;
     }
 
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @Override
+    public String toString() {
+        return "Posts{" +
+                "userId=" + userId +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                '}';
+    }
 }

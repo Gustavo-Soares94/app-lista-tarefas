@@ -27,4 +27,16 @@ public class ApiJsonplaceholder {
         return jsonplaceholderApi;
     }
 
+    public static JsonplaceholderApi getPost(){
+
+        JsonplaceholderApi jsonplaceholderApi = getRetrofit().create(JsonplaceholderApi.class);
+        return jsonplaceholderApi;
+    }
+
+    public static JsonplaceholderApi getAlbums(){
+
+        JsonplaceholderApi jsonplaceholderApi = getRetrofit().create(JsonplaceholderApi.class);
+        return jsonplaceholderApi;
+    }
+
 }

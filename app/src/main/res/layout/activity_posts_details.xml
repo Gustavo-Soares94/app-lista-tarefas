@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".CommentsDetailsActivity">
+    tools:context=".PostsDetailsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,54 +18,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Detalhes do Comentário" />
+            android:text="Detalhes das Postagens" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
-        android:id="@+id/commentsEmails"
-        android:layout_width="match_parent"
-        android:text="Email:"
-        android:padding="10dp"
-        android:textColor="@color/teal_700"
-        android:layout_height="wrap_content"
-        />
-    <TextView
-        android:id="@+id/commentsEmail"
-        android:layout_width="match_parent"
-        android:text="Email"
-        android:padding="10dp"
-        android:textColor="@color/teal_700"
-        android:layout_height="wrap_content"
-         />
-    <TextView
-        android:id="@+id/commentsNames"
+        android:id="@+id/postsTitles"
         android:layout_width="match_parent"
         android:text="Titulo:"
         android:padding="10dp"
         android:textColor="@color/teal_700"
         android:layout_height="wrap_content"
         />
+
     <TextView
-        android:id="@+id/commentsName"
+        android:id="@+id/postsTitle"
         android:layout_width="match_parent"
-        android:text="Name"
+        android:text="Titulo"
         android:padding="10dp"
         android:textColor="@color/teal_700"
         android:layout_height="wrap_content"
         />
+
     <TextView
-        android:id="@+id/commentsBodys"
+        android:id="@+id/postsBodys"
         android:layout_width="match_parent"
-        android:text="Comentário:"
+        android:text="Postagem:"
         android:padding="10dp"
         android:textColor="@color/teal_700"
         android:layout_height="wrap_content"
         />
+
     <TextView
-        android:id="@+id/commentsBody"
+        android:id="@+id/postsBody"
         android:layout_width="match_parent"
-        android:text="Comentario"
+        android:text="Postagem"
         android:padding="10dp"
         android:textColor="@color/teal_700"
         android:layout_height="wrap_content"
